@@ -1104,8 +1104,12 @@
   </script>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-close" onclick="closeLightboxDirect()">✕</div>
+  <div id="lb" onclick="if(event.target===this)closeLB()" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.95);align-items:center;justify-content:center;cursor:zoom-out;">
+    <span onclick="closeLB()" style="position:fixed;top:1rem;right:1.5rem;font-size:2.5rem;color:white;cursor:pointer;z-index:10000;line-height:1;">✕</span>
+    <span onclick="event.stopPropagation();changeLB(-1)" style="position:fixed;left:1rem;top:50%;transform:translateY(-50%);font-size:3rem;color:white;cursor:pointer;z-index:10000;user-select:none;">&#8249;</span>
+    <img id="lb-img" src="" style="max-width:92vw;max-height:92vh;object-fit:contain;cursor:default;" onclick="event.stopPropagation()"/>
+    <span onclick="event.stopPropagation();changeLB(1)" style="position:fixed;right:1rem;top:50%;transform:translateY(-50%);font-size:3rem;color:white;cursor:pointer;z-index:10000;user-select:none;">&#8250;</span>
+  </div>
     <div class="lightbox-prev" onclick="event.stopPropagation(); changeLightbox(-1)">&#8249;</div>
     <img id="lightbox-img" src="" alt=""/>
     <div class="lightbox-next" onclick="event.stopPropagation(); changeLightbox(1)">&#8250;</div>
